@@ -3,7 +3,8 @@ import requests
 
 # Cấu hình địa chỉ của FastAPI backend
 # Mặc định uvicorn chạy ở port 8000
-API_URL = "http://127.0.0.1:8000/predict"
+# Sửa lại dòng này
+API_URL = "https://spam-email-detector-cw97.onrender.com/predict"
 
 # Cài đặt cấu hình trang web
 st.set_page_config(page_title="Hệ thống Phát hiện Email Rác", page_icon="📧")
