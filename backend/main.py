@@ -1,11 +1,18 @@
 from fastapi import FastAPI, Body
 import pandas as pd
 import pickle
-
+import sys
 
 app = FastAPI()
-model = pickle.load(open("model_detector_email.pkl", "rb"))
 
+# Thêm try-except để bắt lỗi khi load model
+try:
+    print("⏳ Đang tải mô hình AI...", flush=True)
+    model = pickle.load(open("model_detector_email.pkl", "rb"))
+    print("✅ Đã load model thành công!", flush=True)
+except Exception as e:
+    print(f"❌ LỖI KHI LOAD MODEL: {e}", flush=True)
+    sys.exit(1)
 @app.post("/predict")
 def predict_spam(text: str = Body(..., media_type="text/plain")):
     clean_text = (
