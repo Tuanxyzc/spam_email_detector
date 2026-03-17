@@ -2,6 +2,8 @@ from fastapi import FastAPI, Body
 import pandas as pd
 import pickle
 import sys
+import preprocess
+
 
 app = FastAPI()
 
